@@ -1,0 +1,49 @@
+{
+  "name": "dkd/t3ciparadise",
+  "type": "typo3-cms-extension",
+  "description": "TYPO3 extension testing example",
+  "minimum-stability": "alpha",
+  "license": "GPL-2.0+",
+  "keywords": ["TYPO3", "ci", "testing", "phpunit"],
+  "homepage": "http://www.dkd.de",
+  "authors": [
+    {
+      "name": "Timo Hund",
+      "email": "timo.hund@dkd.de"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "typo3/cms": ">=7.6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": ">=4.8.0 <6.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dkd\\T3ciparadise\\": "Classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Dkd\\T3ciparadise\\Tests\\": "Tests/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "mkdir -p .Build/Web/typo3conf/ext/",
+      "[ -L .Build/Web/typo3conf/ext/t3ciparadise ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/t3ciparadise"
+    ]
+  },
+  "extra": {
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
+    }
+  }
+}

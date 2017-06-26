@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	  xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+<f:layout name="Main"/>
+
+<f:section name="main">
+
+	Rootpages in your system:
+
+	<ul>
+		<f:for each="{rootPages}" as="rootPage">
+			<li>{rootPage.title}</li>
+		</f:for>
+	</ul>
+</f:section>

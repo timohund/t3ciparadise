@@ -1,0 +1,22 @@
+plugin.tx_dkdciparadise {
+  persistence {
+    classes {
+      Dkd\T3ciparadise\Domain\Model\Page {
+        mapping {
+          tableName = pages
+        }
+      }
+    }
+  }
+}
+
+# add to global configuration
+config {
+  tx_extbase {
+    persistence {
+      classes {
+        Dkd\T3ciparadise\Domain\Model\Page < plugin.tx_dkdciparadise.persistence.classes.Dkd\T3ciparadise\Domain\Model\Page
+      }
+    }
+  }
+}

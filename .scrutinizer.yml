@@ -1,0 +1,37 @@
+filter:
+    paths:
+        - 'Classes/*'
+tools:
+
+    php_cpd:
+        enabled: true
+
+    php_code_sniffer:
+        enabled: true
+        config:
+            standard: TYPO3CMS
+
+    # we do this on travis
+    php_cs_fixer:
+        enabled: false
+
+    php_mess_detector:
+        enabled: true
+        config:
+            controversial_rules:
+                superglobals: false
+
+    php_pdepend:
+        enabled: true
+
+    # coverage pushed from travis-ci.org
+    external_code_coverage:
+        # two runs unit and integration
+        runs: 2
+        timeout: 1800
+
+build_failure_conditions:
+    - 'patches.label("Doc Comments").count > 0'
+    - 'patches.label("Spacing").count > 0'
+    - 'issues.label("coding-style").count > 0'
+    - 'issues.severity(>= MAJOR).count > 0'
