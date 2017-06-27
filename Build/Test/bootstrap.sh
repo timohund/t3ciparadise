@@ -24,10 +24,6 @@ if [[ $* == *--local* ]]; then
     read typo3DbPassword
     export TYPO3_DATABASE_PASSWORD=$typo3DbPassword
 
-    echo -n "Choose a testing framework version (^1.1): "
-    read testingFrameworkVersion
-    export TESTING_FRAMEWORK_VERSION=$testingFrameworkVersion
-
     echo -n "Choose a php-cs-fixer version (^1.3): "
     read phpCSFixerVersion
     export PHP_CS_FIXER_VERSION=$phpCSFixerVersion
@@ -46,9 +42,7 @@ echo "Using package path $TYPO3_PATH_PACKAGES"
 echo "Using web path $TYPO3_PATH_WEB"
 
 composer global require friendsofphp/php-cs-fixer:"$PHP_CS_FIXER_VERSION"
-
 composer require --dev typo3/cms="$TYPO3_VERSION"
-composer require --dev --prefer-source nimut/testing-framework="$TESTING_FRAMEWORK_VERSION"
 
 # Restore composer.json
 git checkout composer.json
