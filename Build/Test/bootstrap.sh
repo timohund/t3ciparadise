@@ -42,6 +42,8 @@ echo "Using package path $TYPO3_PATH_PACKAGES"
 echo "Using web path $TYPO3_PATH_WEB"
 
 composer global require friendsofphp/php-cs-fixer:"$PHP_CS_FIXER_VERSION"
+composer global require scrutinizer/ocular:"1.3.1"
+
 composer require --dev typo3/cms="$TYPO3_VERSION"
 
 # Restore composer.json
