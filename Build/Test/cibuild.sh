@@ -4,9 +4,12 @@ echo "PWD: $(pwd)"
 
 export TYPO3_PATH_WEB="$(pwd)/.Build/Web/"
 export TYPO3_PATH_PACKAGES="$(pwd)/.Build/vendor/"
-export TYPO3_BIN_DIR="$(pwd)/.Build/bin/"
 
-export PATH="$PATH:$HOME/.composer/vendor/bin:$TYPO3_BIN_DIR"
+export TYPO3_BIN_DIR="$(pwd)/.Build/bin/"
+export COMPOSER_BIN_DIR="$HOME/.composer/vendor/bin"
+
+# Add TYPO3_BIN_DIR and COMPOSER_BIN_DIR to $PATH
+export PATH="$TYPO3_BIN_DIR:$COMPOSER_BIN_DIR:$PATH"
 
 echo "Run PHP Lint"
 find . -name \*.php ! -path "./.Build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
