@@ -6,8 +6,8 @@ checks:
 filter:
     paths:
         - 'Classes/*'
-tools:
 
+tools:
     php_cpd:
         enabled: true
 
